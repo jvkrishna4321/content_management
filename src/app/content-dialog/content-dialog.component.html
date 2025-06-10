@@ -1,0 +1,176 @@
+<form [formGroup]="atticDataForm" (ngSubmit)="onSubmit()">
+    <button type="button" class="close-btn" (click)="closeDialog()">
+        &times;
+      </button>
+    <h2>Attic Data Collection Form</h2>
+  
+    <div class="form-section">
+      <h3>Contact Information</h3>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="atticDataForm.get('name')?.invalid && atticDataForm.get('name')?.touched">
+        <small class="error">Name is required</small>
+      </div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" formControlName="date">
+  
+      <label for="address">Address:</label>
+      <input type="text" id="address" formControlName="address">
+  
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" id="phoneNumber" formControlName="phoneNumber">
+  
+      <label for="emailAddress">Email Address:</label>
+      <input type="email" id="emailAddress" formControlName="emailAddress">
+    </div>
+  
+    <div class="form-section">
+      <h3>Concerns & Opportunities</h3>
+      <label for="homeownerConcerns">Summary Homeowner Concerns:</label>
+      <textarea id="homeownerConcerns" formControlName="homeownerConcerns"></textarea>
+  
+      <label for="rebateOpportunities">Rebate Opportunities:</label>
+      <textarea id="rebateOpportunities" formControlName="rebateOpportunities"></textarea>
+    </div>
+  
+    <div class="form-section">
+      <h3>Current Conditions</h3>
+      <label>Joist Spacing:</label>
+      <div>
+        <input type="radio" id="joist16" value="16&quot;" formControlName="joistSpacing">
+        <label for="joist16">16"</label>
+        <input type="radio" id="joist24" value="24&quot;" formControlName="joistSpacing">
+        <label for="joist24">24"</label>
+      </div>
+  
+      <label>Roof Structure:</label>
+      <div>
+        <input type="radio" id="trusses" value="Trusses" formControlName="roofStructure">
+        <label for="trusses">Trusses</label>
+        <input type="radio" id="stickBuilt" value="Stick Built" formControlName="roofStructure">
+        <label for="stickBuilt">Stick Built</label>
+      </div>
+  
+      <label>Ventilation:</label>
+      <div>
+        <input type="checkbox" id="ridgeVent" formControlName="ridgeVent">
+        <label for="ridgeVent">Ridge Vent</label>
+        <input type="checkbox" id="ventedSoffit" formControlName="ventedSoffit">
+        <label for="ventedSoffit">Vented Soffit</label>
+        <input type="checkbox" id="soffitBaffles" formControlName="soffitBaffles">
+        <label for="soffitBaffles">Soffit Baffles</label>
+      </div>
+    </div>
+  
+    <div class="form-section">
+      <h3>Durability Issues</h3>
+      <div>
+        <input type="checkbox" id="condensation" formControlName="condensationEvidence">
+        <label for="condensation">Condensation</label>
+        <input type="checkbox" id="rodentEvidence" formControlName="rodentEvidence">
+        <label for="rodentEvidence">Rodent Evidence</label>
+      </div>
+  
+      <label for="insType">INS Type:</label>
+      <input type="text" id="insType" formControlName="insType">
+  
+      <label for="insThickness">INS Thickness:</label>
+      <input type="text" id="insThickness" formControlName="insThickness">
+  
+      <label for="currentRValue">Current R-Value:</label>
+      <input type="text" id="currentRValue" formControlName="currentRValue">
+    </div>
+  
+    <label for="thermopanDamsRecommendations">Thermopan Dams:</label>
+    <div class="form-section">
+      <h3>Other Conditions</h3>
+      <label>Air Sealing:</label>
+      <div>
+        <input type="radio" id="airSealingYes" [value]="true" formControlName="airSealing">
+        <label for="airSealingYes">Yes</label>
+        <input type="radio" id="airSealingNo" [value]="false" formControlName="airSealing">
+        <label for="airSealingNo">No</label>
+      </div>
+  
+      <label>HVAC in Attic:</label>
+      <div>
+        <input type="radio" id="hvacYes" [value]="true" formControlName="hvacInAttic">
+        <label for="hvacYes">Yes</label>
+        <input type="radio" id="hvacNo" [value]="false" formControlName="hvacInAttic">
+        <label for="hvacNo">No</label>
+      </div>
+  
+      <label for="accessHatchType">Access Hatch Type:</label>
+      <input type="text" id="accessHatchType" formControlName="accessHatchType">
+  
+      <label for="accessHatchSize">Access Hatch Size:</label>
+      <input type="text" id="accessHatchSize" formControlName="accessHatchSize">
+    </div>
+  
+    <div class="form-section">
+      <h3>Attic Sections</h3>
+      <h4>ATTIC Section #1</h4>
+      <label for="atticSection1Dimensions">Dimensions:</label>
+      <input type="text" id="atticSection1Dimensions" formControlName="atticSection1Dimensions">
+      <label for="atticSection1UnflooredArea">Unfloored Area:</label>
+      <input type="text" id="atticSection1UnflooredArea" formControlName="atticSection1UnflooredArea"> +
+      <label for="atticSection1FlooredArea">Floored Area:</label>
+      <input type="text" id="atticSection1FlooredArea" formControlName="atticSection1FlooredArea">
+      <label for="atticSection1TotalArea">TOTAL AREA:</label>
+      <input type="text" id="atticSection1TotalArea" formControlName="atticSection1TotalArea">
+      <label for="atticSection1FlooredAreaCavityDepth">Floored Area Cavity Depth (if applicable):</label>
+      <input type="text" id="atticSection1FlooredAreaCavityDepth" formControlName="atticSection1FlooredAreaCavityDepth">
+  
+      <h4>ATTIC Section #2</h4>
+      <label for="atticSection2Location">Location:</label>
+      <input type="text" id="atticSection2Location" formControlName="atticSection2Location">
+      <label for="atticSection2UnflooredArea">Unfloored Area:</label>
+      <input type="text" id="atticSection2UnflooredArea" formControlName="atticSection2UnflooredArea"> +
+      <label for="atticSection2FlooredArea">Floored Area:</label>
+      <input type="text" id="atticSection2FlooredArea" formControlName="atticSection2FlooredArea">
+      <label for="atticSection2TotalArea">TOTAL AREA:</label>
+      <input type="text" id="atticSection2TotalArea" formControlName="atticSection2TotalArea">
+      <label for="atticSection2FlooredAreaCavityDepth">Floored Area Cavity Depth (if applicable):</label>
+      <input type="text" id="atticSection2FlooredAreaCavityDepth" formControlName="atticSection2FlooredAreaCavityDepth">
+  
+      <h4>ATTIC Section #3</h4>
+      <label for="atticSection3Dimensions">Dimensions:</label>
+      <input type="text" id="atticSection3Dimensions" formControlName="atticSection3Dimensions">
+      <label for="atticSection3UnflooredArea">Unfloored Area:</label>
+      <input type="text" id="atticSection3UnflooredArea" formControlName="atticSection3UnflooredArea"> +
+      <label for="atticSection3FlooredArea">Floored Area:</label>
+      <input type="text" id="atticSection3FlooredArea" formControlName="atticSection3FlooredArea">
+      <label for="atticSection3TotalArea">TOTAL AREA:</label>
+      <input type="text" id="atticSection3TotalArea" formControlName="atticSection3TotalArea">
+      <label for="atticSection3FlooredAreaCavityDepth">Floored Area Cavity Depth (if applicable):</label>
+      <input type="text" id="atticSection3FlooredAreaCavityDepth" formControlName="atticSection3FlooredAreaCavityDepth">
+    </div>
+  
+    <div class="form-section">
+      <h3>Notes & Recommendations</h3>
+      <label for="additionalNotes">ADDITIONAL NOTES/SCOPE OF REMEDIATION:</label>
+      <textarea id="additionalNotes" formControlName="additionalNotes"></textarea>
+  
+      <h4>Attic Recommendations</h4>
+      <label for="atticInsRecommendations">Attic INS:</label>
+      <textarea id="atticInsRecommendations" formControlName="atticInsRecommendations"></textarea>
+  
+      <label for="atticASRecommendations">Attic AS:</label>
+      <textarea id="atticASRecommendations" formControlName="atticASRecommendations"></textarea>
+  
+      <label for="atticAccessInsAsRecommendations">Attic Access INS/AS:</label>
+      <textarea id="atticAccessInsAsRecommendations" formControlName="atticAccessInsAsRecommendations"></textarea>
+  
+      <textarea id="thermopanDamsRecommendations" formControlName="thermopanDamsRecommendations"></textarea>
+  
+      <label for="soffitVentilationRecommendations">Soffit Ventilation:</label>
+      <textarea id="soffitVentilationRecommendations" formControlName="soffitVentilationRecommendations"></textarea>
+  
+      <label for="additionalServices">Add. Services (Bath fan venting, HVAS AS, Recessed Lights, Fungicide, Etc.):</label>
+      <textarea id="additionalServices" formControlName="additionalServices"></textarea>
+    </div>
+  
+    <!-- <button type="submit" [disabled]="!atticDataForm.valid">Submit</button> -->
+    <button type="submit" [disabled]="atticDataForm.invalid">Submit</button>
+
+  </form>
